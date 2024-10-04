@@ -1,6 +1,6 @@
-package Oct;
+package Oct.ex_04102024;
 
-public class Lab002 {
+public class Lab003 {
     public static void main(String[] args) {
 
     }
