@@ -11,6 +11,7 @@ public class EvenOrOdd {
         {
             System.out.println(number +" is even number. ");
 
+
         }
 
         else

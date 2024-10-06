@@ -8,5 +8,6 @@ public class SimpleCalculator {
         System.out.println("3 * 2 =6");
         System.out.println("15/3 =5");
         System.out.println("4/2 =2");
+
     }
 }
