@@ -11,6 +11,7 @@ public class ReverseStringForLoop {
 
             reversed += input.charAt(i);
 
+
         }
 
         System.out.println("Input String:" +input);
