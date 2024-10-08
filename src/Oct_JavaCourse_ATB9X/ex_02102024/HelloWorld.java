@@ -1,4 +1,4 @@
-package Oct.ex_02102024_MainMethod;
+package Oct_JavaCourse_ATB9X.ex_02102024;
 
 public class HelloWorld {
     public static void main(String[] args) {

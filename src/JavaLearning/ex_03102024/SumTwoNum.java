@@ -1,4 +1,4 @@
-package Learning.ex_03102024;
+package JavaLearning.ex_03102024;
 
 public class SumTwoNum {
 

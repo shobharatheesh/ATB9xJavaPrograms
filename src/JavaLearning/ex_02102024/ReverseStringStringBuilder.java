@@ -1,4 +1,4 @@
-package Learning.ex_02102024;
+package JavaLearning.ex_02102024;
 
 public class ReverseStringStringBuilder {
 
