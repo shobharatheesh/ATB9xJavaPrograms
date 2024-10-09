@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.ex_03102024;
+package Oct_JavaCourse_ATB9X.ex_03102024Task;
 
 public class SimpleCalculator {
 
