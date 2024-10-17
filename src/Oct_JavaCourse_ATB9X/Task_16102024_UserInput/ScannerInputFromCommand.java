@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.Task_16102024;
+package Oct_JavaCourse_ATB9X.Task_16102024_UserInput;
 
 import java.util.Scanner;
 
