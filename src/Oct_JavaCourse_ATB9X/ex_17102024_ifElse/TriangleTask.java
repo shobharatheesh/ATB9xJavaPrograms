@@ -15,16 +15,13 @@ public class TriangleTask {
         int c  = sc.nextInt();
 
         if(a==b && b==c && c==a){
-
             System.out.println("The Triangle is Equilateral triangle");
         }
         else if (a==b || a==c || b==c ) {
-            System.out.println("The Traingle is Isoceles triangle ");
+            System.out.println("The Triangle is Isosceles triangle ");
 
         }
-
         else {
-
             System.out.println("The Triangle is Scalene triangle");
         }
     }
