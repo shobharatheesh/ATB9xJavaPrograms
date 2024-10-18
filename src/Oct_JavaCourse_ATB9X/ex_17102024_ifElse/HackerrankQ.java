@@ -10,7 +10,11 @@ public class HackerrankQ {
         System.out.println(" Enter the score: ");
         int score = sc.nextInt();
 
-        if (score >= 90 && score <= 100) {
+      if (score >= 100 || score<=1) {
+          System.out.println("its invalid Marks score");
+        }
+
+        else if (score >= 90 && score <= 100) {
 
             System.out.println("Grade A");
         }
@@ -24,10 +28,6 @@ public class HackerrankQ {
         else if (score >= 60 && score <= 69) {
 
             System.out.println("Grade D");
-        }
-        else if (score >= 100 && score <= 0) {
-
-            System.out.println("its invalid Marks score");
         }
 
         else {
