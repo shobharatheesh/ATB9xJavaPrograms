@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.Task15102024;
+package Oct_JavaCourse_ATB9X.Task15102024_incredecre;
 
 public class OperandIncreDecre {
 

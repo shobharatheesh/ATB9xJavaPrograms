@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.ex_15102024;
+package Oct_JavaCourse_ATB9X.ex_15102024_operator;
 
 public class Operators2 {
 

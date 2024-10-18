@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.Task09102024;
+package Oct_JavaCourse_ATB9X.Task09102024_printf;
 
 public class Printf {
     public static void main(String[] args) {

@@ -14,26 +14,27 @@ public class HackerrankQ {
 
             System.out.println("Grade A");
         }
-        else if(score >=80 && score <= 89) {
+        else if (score >= 80 && score <= 89) {
 
             System.out.println("Grade B");
         }
-
-        else if(score >= 70 && score <= 79)
-        {
+        else if (score >= 70 && score <= 79) {
             System.out.println("Grade C");
         }
-
-        else if(score>=60 && score<=69){
+        else if (score >= 60 && score <= 69) {
 
             System.out.println("Grade D");
         }
+        else if (score >= 100 && score <= 0) {
 
-        else{
+            System.out.println("its invalid Marks score");
+        }
+
+        else {
 
             System.out.println("Grade F");
         }
 
+        sc.close();
     }
-
 }
