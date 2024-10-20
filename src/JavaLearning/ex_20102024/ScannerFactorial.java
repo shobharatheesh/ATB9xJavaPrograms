@@ -16,7 +16,7 @@ public class ScannerFactorial {
         //calculate factorial
         int factorial = 1;
         for (int i = 1; i <= num; i++) {
-            factorial *= i;
+            factorial = i * factorial;
         }
 
         System.out.println("The factorial of the given number is : " +factorial);
