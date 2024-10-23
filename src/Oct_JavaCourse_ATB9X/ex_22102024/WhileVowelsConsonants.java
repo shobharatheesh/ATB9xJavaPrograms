@@ -38,7 +38,7 @@ public class WhileVowelsConsonants {
         }
 
         // Output the counts of vowels and consonants
-        System.out.println("Number of vowels: " +i);
+        System.out.println("Number vowels and consonants: " +i);
 
         System.out.println("Number of vowels: " + vowels);
         System.out.println("Number of consonants: " + consonants);
