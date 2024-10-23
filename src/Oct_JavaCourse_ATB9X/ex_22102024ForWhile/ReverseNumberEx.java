@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.ex_22102024;
+package Oct_JavaCourse_ATB9X.ex_22102024ForWhile;
 
 import java.util.Scanner;
 

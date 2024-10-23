@@ -1,8 +1,28 @@
-package Oct_JavaCourse_ATB9X.ex_23102024;
+package Oct_JavaCourse_ATB9X.ex_23102024Function;
 
 import java.util.Scanner;
 
-public class FunctionAddSub {
+public class FunctionCalculator {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the First number: ");
+        int a = sc.nextInt();
+
+        System.out.println("Enter the second number : ");
+        int b = sc.nextInt();
+
+        //Performing operations
+
+        System.out.println("sum: " +sum(a,b));
+        System.out.println("sub: " +sub(a,b));
+        System.out.println("mul: " +mul(a,b));
+        System.out.println("div: " +div(a,b));
+
+
+        sc.close();
+    }
 
     //Function for addition
 
@@ -32,24 +52,6 @@ public class FunctionAddSub {
             return 0;
         }
     }
-
-    public static void main(String[] args) {
-
-        Scanner sc= new Scanner(System.in);
-        System.out.println("Enter the first number : ");
-        int a = sc.nextInt();
-        System.out.println("Enter the second number : ");
-        int b = sc.nextInt();
-
-        //Performing operation
-
-        System.out.println("sum: " +sum(a , b));
-        System.out.println("sub: " +sub(a,b));
-        System.out.println("mul: " +mul(a,b));
-        System.out.println("div: "+div(a,b));
-
-        sc.close();
-
-    }
 }
+
 
