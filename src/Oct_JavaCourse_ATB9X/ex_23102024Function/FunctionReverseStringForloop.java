@@ -2,7 +2,7 @@ package Oct_JavaCourse_ATB9X.ex_23102024Function;
 
 import java.util.Scanner;
 
-public class FunctionReverseString {
+public class FunctionReverseStringForloop {
 
     public static void main(String[] args) {
 
