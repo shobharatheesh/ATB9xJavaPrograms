@@ -1,0 +1,37 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Scanner;
+class Reverse {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int num = sc.nextInt();
+        
+        //Performing operations
+        System.out.println("The reverse number is : " +reverse(num));
+        
+    }
+    public static int reverse(int num)
+    {
+        int reverse = 0;
+        
+        while(num !=0)
+        {
+            int remainder = num%10;
+            reverse = reverse*10 + remainder;
+            num = num/10;
+        }
+        
+        return reverse;
+    }
+    
+}
+
+Output:
+java -cp /tmp/a4RInEWuQo/Reverse
+Enter a number: 
+45
+The reverse number is : 54
+
+=== Code Execution Successful ===
