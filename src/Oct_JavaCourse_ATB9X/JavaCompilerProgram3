@@ -1,0 +1,66 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Scanner;
+class VowelConsonant {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String: ");
+        String str = sc.nextLine();
+        
+        //performing operations
+        
+     vowelConsonantCount(str);
+        
+    }
+    
+    public static void vowelConsonantCount(String str)
+    {
+    
+        
+        int i =0;
+        int vowels =0;
+        int consonants =0;
+        
+       str = str.toLowerCase();
+        
+        while(i < str.length())
+        {
+            char ch = str.charAt(i);
+            
+            if(ch == 'a' || ch =='e' ||ch =='i' ||ch =='o' || ch =='u')
+            {
+               vowels =vowels+1; 
+            }
+            else
+            {
+                consonants = consonants+1;
+            }
+            
+            i++;
+            
+        }
+        
+        System.out.println("Number vowels and consonants: " +i);
+
+        System.out.println("Number of vowels: " + vowels);
+        System.out.println("Number of consonants: " + consonants);
+        
+    }
+    
+}
+    
+    
+Output:
+java -cp /tmp/l6U7aMpZva/VowelConsonant
+Enter a String: 
+shobha
+Number vowels and consonants: 6
+Number of vowels: 2
+Number of consonants: 4
+
+=== Code Execution Successful ===
+    
+
+        
+        
