@@ -1,0 +1,64 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Scanner;
+class PalindromeString {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String: ");
+        String str = sc.nextLine();
+        
+        //performing operations
+        //calling function
+        
+        palindrome(str);
+    
+        
+    }
+    
+    public static void palindrome(String str)
+    {
+        boolean isPalindrome =true;
+        
+        int start =0;
+        int end = str.length() -1;
+        
+        while(start<end)
+        {
+            
+            if(str.charAt(start) != str.charAt(end))
+            {
+                isPalindrome = false;
+                break;
+            }
+            
+            start++;
+            end--;
+            
+        }
+        
+        if(isPalindrome)
+        {
+            System.out.println(str +" is a Plaindrome");
+        }
+        else
+        {
+            System.out.println(str +" is not a Palindrome");
+        }
+    }
+  
+    
+}
+    
+    
+    
+Output:
+java -cp /tmp/jCkZ4amouY/PalindromeString
+Enter a String: 
+hello
+hello is not a Palindrome
+
+=== Code Execution Successful ===
+
+        
+        
