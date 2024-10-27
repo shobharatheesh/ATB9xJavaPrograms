@@ -2,12 +2,12 @@ package Oct_JavaCourse_ATB9X.ex_23102024Function;
 
 import java.util.Scanner;
 
-public class FunctionPrimeNumber {
+public class FunctionPrimeNumber1 {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number : ");
+        System.out.println("Enter the number: ");
         int num = sc.nextInt();
 
         //performing functions or calling functions
