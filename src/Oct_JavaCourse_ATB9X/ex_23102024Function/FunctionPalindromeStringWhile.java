@@ -2,7 +2,7 @@ package Oct_JavaCourse_ATB9X.ex_23102024Function;
 
 import java.util.Scanner;
 
-public class PalindromeStringWhile {
+public class FunctionPalindromeStringWhile {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
