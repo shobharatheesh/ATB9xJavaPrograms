@@ -6,13 +6,13 @@ public class StringFunctions {
         {
 
             String str = "Hello, World!";
-            String anotherStr = "Java Programming";
+            String anotherStr = " Java Programming ";
 
             //Basic String function examples
 
             System.out.println("Original String: "+str);
 
-            //1. Length of the string
+            //1. Length of the string -->length always starts from 1
             System.out.println("Length : "+str.length());
 
             //2.character at specific index --> starts from 0
@@ -54,7 +54,7 @@ public class StringFunctions {
             System.out.println("Equals Ignore case: "+str.equalsIgnoreCase("hello, world"));
 
 
-            //11.concatenate
+            //11.concatenate --> joins two strings
             System.out.println("Concatenate: " +str.concat(" Java "));
             System.out.println("Concatenate: " +str.concat(" Welcome to Java Programming."));
 
@@ -67,8 +67,8 @@ public class StringFunctions {
             //14.To Lower case
             System.out.println("To Lower Case : "+str.toLowerCase());
 
-            //15.Trim
-            System.out.println("Trimmed String: " +str.trim());
+            //15.Trim --> removes white spaces from both end of the string.
+            System.out.println("Trimmed String: " + anotherStr.trim());
 
 
         }
