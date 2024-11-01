@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.ex_28102024String.ex_29102024Arrays;
+package Oct_JavaCourse_ATB9X.ex_29102024Arrays;
 
 import java.util.Arrays;
 
@@ -19,7 +19,6 @@ public class ArrayBinarySearch {
         else {
             System.out.println("Element not found");
         }
-
 
 
     }

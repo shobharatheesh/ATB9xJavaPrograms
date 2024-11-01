@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.ex_28102024String;
+package Oct_JavaCourse_ATB9X.ex_28102024StringFunctions;
 
 public class StringFunctions {
 

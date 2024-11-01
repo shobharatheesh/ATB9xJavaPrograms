@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.ex_28102024String.ex_29102024Arrays;
+package Oct_JavaCourse_ATB9X.ex_29102024Arrays;
 
 public class ArrayFunctions {
     public static void main(String args[]){
