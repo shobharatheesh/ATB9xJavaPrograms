@@ -3,7 +3,7 @@ package Oct_JavaCourse_ATB9X.ex_29102024Arrays;
 public class ArrayFunctionPractice {
     public static void main(String[] args) {
 
-        // Printing array numbers
+        // Printing array numbers using for each loop
 
         int[] numbers ={3,5,7,2,8};
 

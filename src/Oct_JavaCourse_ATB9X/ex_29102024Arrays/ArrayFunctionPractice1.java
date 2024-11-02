@@ -4,7 +4,7 @@ public class ArrayFunctionPractice1 {
 
     public static void main(String[] args) {
 
-        //printing the sum of array numbers
+        //printing the sum of array numbers using for each loop
 
         int[] numbers = {3, 5, 7, 2, 8};
 
