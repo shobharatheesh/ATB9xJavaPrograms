@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.Task_08112024Array1;
+package Oct_JavaCourse_ATB9X.Task_08112024Array1OOPs;
 
 public class StudentATB1{
 

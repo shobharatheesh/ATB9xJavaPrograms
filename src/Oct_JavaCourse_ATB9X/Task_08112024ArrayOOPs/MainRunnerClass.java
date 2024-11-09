@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.Task_08112024Array;
+package Oct_JavaCourse_ATB9X.Task_08112024ArrayOOPs;
 
 public class MainRunnerClass {
    public static void main(String[] args) {
