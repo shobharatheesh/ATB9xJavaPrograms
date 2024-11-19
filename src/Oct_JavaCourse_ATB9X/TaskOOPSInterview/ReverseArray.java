@@ -1,4 +1,4 @@
-package Oct_JavaCourse_ATB9X.TaskOOPS;
+package Oct_JavaCourse_ATB9X.TaskOOPSInterview;
 
 public class ReverseArray {
     public static void main(String[] args) {
