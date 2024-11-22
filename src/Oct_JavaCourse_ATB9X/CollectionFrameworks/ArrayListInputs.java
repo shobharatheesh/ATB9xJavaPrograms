@@ -23,6 +23,6 @@ public class ArrayListInputs {
         sc.nextLine();
 
         System.out.println("Do you want to enter another record (Y/N): ");
-        continueInput = scanner.nextLine();
+        //continueInput = scanner.nextLine();
     }
 }
