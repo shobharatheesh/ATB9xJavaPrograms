@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "f5cc321f-63cc-4e7d-99ef-534a957b3d0a",
+		"name": "Variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9597989"
+	},
+	"item": [
+		{
+			"name": "myfolder",
+			"item": [
+				{
+					"name": "Get users",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"pre-request script at request level\");\r",
+									"\r",
+									"//global variables\r",
+									"pm.globals.set(\"userid_global\",\"2\");\r",
+									"\r",
+									"//environment variables\r",
+									"pm.environment.set(\"user_id_env\",\"2\");\r",
+									"\r",
+									"//collection variables\r",
+									"pm.collectionVariables.set(\"userid_collect\",\"2\");\r",
+									"//pm.collectionVariables.set(\"url_collect\",\"https://reqres.in\");\r",
+									"\r",
+									"//Local variable\r",
+									"pm.variables.set(\"userid_local\",\"2\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Tests script at request level\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//globals variable\r",
+									"pm.globals.get(\"userid_global\");\r",
+									"console.log(pm.globals.get(\"userid_global\"));\r",
+									"pm.globals.unset(\"userid_global\");\r",
+									"\r",
+									"//environment variables\r",
+									"pm.globals.get(\"user_id_env\");\r",
+									"console.log(pm.globals.get(\"user_id_env\"));\r",
+									"pm.globals.unset(\"user_id_env\");\r",
+									"\r",
+									"//collection variables\r",
+									"pm.globals.get(\"userid_collect\");\r",
+									"console.log(pm.globals.get(\"userid_collect\"));\r",
+									"pm.globals.unset(\"userid_collect\");\r",
+									"\r",
+									"//local variable\r",
+									"pm.globals.get(\"userid_local\");\r",
+									"console.log(pm.globals.get(\"userid_local\"));\r",
+									"pm.globals.unset(\"userid_local\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users?page={{userid_local}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{userid_local}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post create user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"name\",\"Shobha\");\r",
+									"pm.variables.set(\"job\",\"Software engineer\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.variables.unset(\"name\");\r",
+									"pm.variables.unset(\"job\");\r",
+									"\r",
+									"\r",
+									"//Check for a specific status code:\r",
+									"pm.test(\"Status code is 201\", () => { \r",
+									"  pm.response.to.have.status(201); \r",
+									"}); \r",
+									"\r",
+									"pm.test(\"Successful POST request\", () => { \r",
+									"  pm.expect(pm.response.code).to.be.oneOf([200, 201]); \r",
+									"}); \r",
+									"\r",
+									"pm.test(\"Status code name has string\", () => { \r",
+									"  pm.response.to.have.status(\"Created\"); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is present\", () => { \r",
+									"  pm.response.to.have.header(\"Content-Type\"); \r",
+									"}); \r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Length is 93\", () => { \r",
+									"  pm.expect(pm.response.headers.get('Content-Length')).to.eql('93'); \r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", () => { \r",
+									"  pm.expect(pm.response.responseTime).to.be.below(500); \r",
+									"}); \r",
+									"\r",
+									"const jsonData = pm.response.json(); \r",
+									"\r",
+									"pm.test(\"Test data type of the response\", () => { \r",
+									"  pm.expect(jsonData).to.be.an(\"object\"); \r",
+									"  pm.expect(jsonData.name).to.be.a(\"string\"); \r",
+									"  pm.expect(jsonData.id).to.be.a(\"string\"); \r",
+									"  pm.expect(jsonData.job).to.be.an(\"string\"); \r",
+									"}); \r",
+									"\r",
+									"pm.test(\"Validate specific fields in JSON response\", () => { \r",
+									"    var jsonData = pm.response.json(); \r",
+									"\r",
+									"    pm.expect(jsonData.name).to.eql(\"Shobha\"); \r",
+									"    pm.expect(jsonData.job).to.eql(\"Software engineer\"); \r",
+									"   \r",
+									"}); \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"name\" :\"{{name}}\",\r\n \"job\"  :\"{{job}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"pre-request script at folder level\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"Tests script at folder level\");"
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"pre-request script at collection level\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"Tests script at collection level\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userid_collect",
+			"value": ""
+		},
+		{
+			"key": "url_collect",
+			"value": ""
+		}
+	]
+}
