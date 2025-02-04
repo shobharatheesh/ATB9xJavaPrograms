@@ -113,6 +113,19 @@
 							"    pm.expect(jsonData.name).to.equal(pm.variables.get(\"username\"));\r",
 							"    pm.expect(jsonData.email).to.equal(pm.variables.get(\"useremail\"));\r",
 							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\"type\": \"integer\"},\r",
+							"        \"name\": {\"type\": \"string\"},\r",
+							"        \"email\": {\"type\": \"string\"}\r",
+							"    },\r",
+							"    \"required\": [\"id\", \"name\", \"email\"]\r",
+							"};\r",
+							"pm.test(\"Schema validation\", function () {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
 							""
 						],
 						"type": "text/javascript",
@@ -328,20 +341,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "username",
-			"value": ""
-		},
-		{
-			"key": "useremail",
-			"value": ""
-		},
-		{
-			"key": "userid",
-			"value": ""
 		}
 	]
 }
