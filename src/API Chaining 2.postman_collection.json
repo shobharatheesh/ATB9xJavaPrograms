@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "910bdc4c-acec-4373-b252-02a198846d8a",
+		"name": "API Chaining 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9597989"
+	},
+	"item": [
+		{
+			"name": "CreateStudent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//parse the response and capture the id\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.environment.set(\"id\",jsonData.id);\r",
+							"console.log(\"Captured student ID:\" , jsonData.id);\r",
+							"\r",
+							"pm.test(\"Verify ID is created\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('id');\r",
+							"    pm.expect(jsonData.id).to.not.be.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\"name\": \"Scott\", \r\n\"location\": \"France\", \r\n\"phone\": \"123456\", \r\n\"courses\": [ \r\n\"C\", \r\n\"C++\" \r\n] \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStudent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response matches request variables\", function () {\r",
+							"    pm.expect(pm.response.json().id).to.equal(pm.variables.get(\"id\"));\r",
+							"    pm.expect(pm.response.json().name).to.equal(pm.variables.get(\"name\"));\r",
+							"    pm.expect(pm.response.json().location).to.equal(pm.variables.get(\"location\"));\r",
+							"    pm.expect(pm.response.json().phone).to.equal(pm.variables.get(\"phone\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate student details\", () => { \r",
+							"var jsonData = pm.response.json(); \r",
+							"pm.expect(jsonData.id).to.eql(pm.environment.get(\"id\")); \r",
+							"pm.expect(jsonData.name).to.eql(\"Scott\"); \r",
+							"pm.expect(jsonData.location).to.eql(\"France\"); \r",
+							"});   \r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteStudent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Variables should be deleted\", function () {\r",
+							"    pm.expect(pm.collectionVariables.has(\"name\")).to.be.false;\r",
+							"    pm.expect(pm.collectionVariables.has(\"location\")).to.be.false;\r",
+							"    pm.expect(pm.collectionVariables.has(\"phone\")).to.be.false;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/{{id}} ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"{{id}} "
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
