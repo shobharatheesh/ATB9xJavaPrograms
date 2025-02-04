@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "33edbf89-3e9c-4bce-bed7-ff7185c5a73a",
+		"name": "APIChaining",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9597989"
+	},
+	"item": [
+		{
+			"name": "CreateUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//generate random text\r",
+							"const text =Math.random().toString(36).substring(2);\r",
+							"const email =text+\"@gmail.com\";\r",
+							"\r",
+							"console.log(email);\r",
+							"\r",
+							"pm.collectionVariables.set(\"username\",\"xyz\");\r",
+							"pm.collectionVariables.set(\"useremail\",email);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"const jsonData =pm.response.json(); //capture the whole respose \r",
+							"//we need to capture only id\r",
+							"//we can use jsonData.id\r",
+							"pm.collectionVariables.set(\"userid\",jsonData.id);\r",
+							"console.log(jsonData.id)\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"User is created with the correct name, email, gender, and status\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"xyz\");\r",
+							"    pm.expect(jsonData.gender).to.eql(\"male\");\r",
+							"    pm.expect(jsonData.status).to.eql(\"inactive\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code has string 'Created'\", function () {\r",
+							"    pm.response.to.have.status('Created');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\": \"{{username}}\",\r\n \"gender\": \"male\",\r\n \"email\": \"{{useremail}}\",\r\n \"status\": \"inactive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json(); //capture the whole response\r",
+							"\r",
+							"// Validate the variables\r",
+							"pm.test(\"Variables should be set\", function () {\r",
+							"    pm.expect(pm.variables.get(\"userid\")).to.equal(jsonData.id); // Validate the 'id' variable\r",
+							"    pm.expect(pm.variables.get(\"username\")).to.equal(jsonData.name); // Validate the 'name' variable\r",
+							"    pm.expect(pm.variables.get(\"useremail\")).to.equal(jsonData.email); // Validate the 'email' variable\r",
+							"});\r",
+							"\r",
+							"// Validate the JSON Fields\r",
+							"pm.test(\"Validate Json Fields\", ()=> {\r",
+							"    pm.expect(jsonData.id).to.equal(pm.variables.get(\"userid\"));\r",
+							"    pm.expect(jsonData.name).to.equal(pm.variables.get(\"username\"));\r",
+							"    pm.expect(jsonData.email).to.equal(pm.variables.get(\"useremail\"));\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{userid}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//generate random text\r",
+							"const text =Math.random().toString(36).substring(2);\r",
+							"const email =text+\"@gmail.com\";\r",
+							"\r",
+							"console.log(email);\r",
+							"\r",
+							"pm.collectionVariables.set(\"username\",\"shobha\");\r",
+							"pm.collectionVariables.set(\"useremail\",email);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json(); //capture the whole response\r",
+							"\r",
+							"// Validate the variables\r",
+							"pm.test(\"Variables should be set\", function () {\r",
+							"    pm.expect(pm.variables.get(\"userid\")).to.equal(jsonData.id); // Validate the 'id' variable\r",
+							"    pm.expect(pm.variables.get(\"username\")).to.equal(jsonData.name); // Validate the 'name' variable\r",
+							"    pm.expect(pm.variables.get(\"useremail\")).to.equal(jsonData.email); // Validate the 'email' variable\r",
+							"});\r",
+							"\r",
+							"// Validate the JSON Fields\r",
+							"pm.test(\"Validate Json Fields\", ()=> {\r",
+							"    pm.expect(jsonData.id).to.equal(pm.variables.get(\"userid\"));\r",
+							"    pm.expect(jsonData.name).to.equal(pm.variables.get(\"username\"));\r",
+							"    pm.expect(jsonData.email).to.equal(pm.variables.get(\"useremail\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify status is active\", function () {\r",
+							"    pm.expect(jsonData.status).to.equal(\"active\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\"name\": \"{{username}}\", \r\n\"email\": \"{{useremail}}\", \r\n\"status\": \"active\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{userid}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"username\");\r",
+							"pm.collectionVariables.unset(\"useremail\");\r",
+							"pm.collectionVariables.unset(\"userid\");\r",
+							"\r",
+							"pm.test(\"Variables should be deleted\", function () {\r",
+							"    pm.expect(pm.collectionVariables.has(\"username\")).to.be.false;\r",
+							"    pm.expect(pm.collectionVariables.has(\"useremail\")).to.be.false;\r",
+							"    pm.expect(pm.collectionVariables.has(\"userid\")).to.be.false;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{userid}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "9a2754ef0cad0a131bd51f0811e6593145d6dce8a5d60559b4482da32f9d2e9d",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": ""
+		},
+		{
+			"key": "useremail",
+			"value": ""
+		},
+		{
+			"key": "userid",
+			"value": ""
+		}
+	]
+}
