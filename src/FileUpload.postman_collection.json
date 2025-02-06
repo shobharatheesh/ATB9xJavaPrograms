@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "b6b7d180-991b-409a-b848-b4654744b362",
+		"name": "FileUpload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9597989"
+	},
+	"item": [
+		{
+			"name": "UploadSingleFile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "587f88416c8e91177cf9ee61c393abd83ddfc0663d4572fd36a452aea446b150",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "File",
+							"description": "This is a sample file",
+							"type": "file",
+							"src": "/D:/AutomationPracticePOSTMAN/JsonFiles/textFile.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://postman-echo.com/post",
+					"protocol": "http",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DownloadSingleFile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://postman-echo.com/post",
+					"protocol": "http",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadMultipleFiles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/D:/AutomationPracticePOSTMAN/JsonFiles/students.json",
+								"/D:/AutomationPracticePOSTMAN/JsonFiles/textFile.txt"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/uploadMultipleFiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uploadMultipleFiles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
